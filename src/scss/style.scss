@@ -72,6 +72,7 @@ body {
   padding-right: $paddingContainer;
 }
 .bcg-image {
+  width: 100% !important;
   position: absolute !important;
   bottom: 0;
     transform: translate(-50%, 0px);
@@ -87,7 +88,9 @@ body {
       position: fixed;
       bottom: 0;
       left: 50%;
+      z-index: 9;
       transform: translate(-50%, 0px);
+      margin-bottom: 15px;
   }
 
 }

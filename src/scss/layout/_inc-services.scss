@@ -24,6 +24,8 @@
             &:last-child {
                 border-bottom: none;
             }
+            display: flex;
+            flex-direction: column-reverse;
         }
         &-img {
             display: block;
@@ -56,9 +58,6 @@
                 font-size: rem(18);
                 margin-bottom: 25px;
             }
-            span {
-                font-weight: 700;
-            }
         }
         &-text {
           font-size: rem(13);
@@ -72,15 +71,8 @@
         }
         &-wrap {
             display: inline-block;
-            @media(max-width:1024px) {
-                display: none;
-            }
-            &-mob {
-                display: none;
-                @media(max-width:1024px) {
-                    display: inline-block;
-                }
-            }
+
+
         }
     }
 

@@ -4,6 +4,7 @@ const topSwiper = new Swiper('.topSwiper', {
 
     pagination: {
       el: '.swiper-pagination',
+      clickable: true,
     },
 
     // Navigation arrows
@@ -18,6 +19,8 @@ const topSwiper = new Swiper('.topSwiper', {
   let btnmedia =  window.matchMedia("(max-width:1024px)")
 // Side Menu
 $('.header-contacts-contact').click(() => {
+  $(document.body).addClass('overflow-hidden-cont')
+
   $('.side-menu').toggleClass('opened');
   if(btnmedia.matches) {
     $('.map ').css('top', $('.side-menu ').outerHeight())
@@ -26,14 +29,17 @@ $('.header-contacts-contact').click(() => {
 })
 // close side-menu
 $('.side-menu-close-btn').click(() => {
+  $(document.body).removeClass('overflow-hidden-cont')
   $('.side-menu').removeClass('opened');
 })
 //Menu
 $('.header-menu').click(() => {
+  $(document.body).addClass('overflow-hidden-menu')
   $('.main-menu').toggleClass('opened');
 })
 // close menu
 $('.main-menu-close-btn').click(() => {
+  $(document.body).removeClass('overflow-hidden-menu')
   $('.main-menu').removeClass('opened');
 })
 
@@ -143,6 +149,8 @@ function changes768(screen768) {
 
 $('.side-menu-map').click(() => {
   $('.map').toggleClass('opened')
+
+  // document.body.style.overflowY = "hidden";
 })
 
 $('.header-contacts-contact-icon').click(() => {
