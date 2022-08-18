@@ -1,0 +1,43 @@
+.swiper-specialists {
+    width: 100%;
+    height: 100%;
+
+      .swiper-slide {
+        &-img {
+          margin-bottom: 20px;
+        }
+        &-title {
+            height: 80px;
+            font-size: rem(22);
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+      }
+
+      .swiper-slide img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      .swiper-button-prev, .swiper-button-next {
+        top: 30%;
+      }
+}
+
+
+.specialists {
+  margin-bottom: 50px;
+  background-image: url(./../images/bg/specialist-back.png);
+  @media(max-width:1024px) {
+    display: none;
+}
+    &-title {
+        font-size: rem(40);
+        font-weight: 700;
+        margin-bottom: 35px;
+        text-transform: uppercase;
+        text-align: center;
+    }
+}
+

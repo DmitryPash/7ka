@@ -22,6 +22,7 @@ export const path = {
     img: `${srcFolder}/images/**/*.*`,
     fonts: `${srcFolder}/fonts/*.*`,
     svg: `${srcFolder}/images/svg/*.svg`,
+    sprite: `${srcFolder}/images/icons/*.png`,
     htaccess: `${srcFolder}/.htaccess`,
   },
 
@@ -31,6 +32,7 @@ export const path = {
     js: `${srcFolder}/js/*.js`,
     img: `${srcFolder}/images/**/*.*`,
     svg: `${srcFolder}/images/svg/*.svg`,
+    sprite: `${srcFolder}/images/icons/*.png`,
   },
 
   clean: buildFolder,

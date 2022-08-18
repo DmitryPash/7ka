@@ -1,0 +1,215 @@
+
+
+.footer {
+    background-image: url(./../images/bg/footer-back.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    padding: 50px 0px;
+    &-directions {
+        flex: 0 0 65%;
+        max-width: 65%;
+        @media(max-width:1024px) {
+            flex: 0 0 100%;
+            max-width: 100%;
+            margin-bottom: 30px;
+        }
+        @media(max-width:768px) {
+            flex: 0 0 50%;
+            max-width: 50%;
+            margin-bottom: 30px;
+        }
+        ul li {
+            a {
+                display: block;
+                margin-bottom: 2px;
+                font-size: rem(20);
+                font-weight: 400;
+                color: #fff;
+                @media(max-width:576px) {
+                    font-size: rem(12);
+                }
+            }
+        }
+        &-title {
+            font-size: rem(20);
+            font-weight: 300;
+            color: #fff;
+            text-transform: uppercase;
+            @media(max-width:576px) {
+                font-size: rem(12);
+            }
+        }
+    }
+    &-sections {
+        ul li {
+            a {
+                display: block;
+                margin-bottom: 2px;
+                font-size: rem(20);
+                font-weight: 400;
+                color: #fff;
+                @media(max-width:576px) {
+                    font-size: rem(12);
+                }
+            }
+        }
+        &-title {
+            font-size: rem(20);
+            font-weight: 300;
+            color: #fff;
+            text-transform: uppercase;
+            @media(max-width:576px) {
+                font-size: rem(12);
+            }
+        }
+    }
+    &-contacts {
+        max-width: 270px;
+        margin-bottom: 30px;
+        @media(max-width:768px) {
+            flex: 0 0 100%;
+            max-width: 100%;
+            text-align: center;
+        }
+        &-num {
+            margin-bottom: 20px;
+            span {
+                display: block;
+                font-size: rem(20);
+                font-weight: 700;
+                color: #fff;
+                @media(max-width:576px) {
+                    font-size: rem(14);
+                }
+            }
+        }
+        &-mail {
+            font-size: rem(20);
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 20px;
+            @media(max-width:576px) {
+                font-size: rem(14);
+                margin-bottom: 35px;
+            }
+        }
+        &-adress {
+            font-size: rem(20);
+            font-weight: 400;
+            color: #fff;
+            margin-bottom: 20px;
+            @media(max-width:576px) {
+                font-size: rem(12);
+            }
+            &-icon {
+                display: inline-block;
+                vertical-align: middle;
+                @include sprite($place-mark);
+                @media(max-width:576px) {
+                    @include sprite($place-mark-mob);
+                }
+            }
+        }
+        &-time {
+            span {
+                font-size: rem(12);
+                color: #fff;
+                display: block;
+                @media(max-width:576px) {
+                    font-size: rem(10);
+                }
+            }
+            &-clock {
+                font-size: rem(20);
+                font-weight: 700;
+                color: #fff;
+                @media(max-width:576px) {
+                    font-size: rem(12);
+                }
+            }
+        }
+    }
+    &-links {
+        @media(max-width:768px) {
+            display: inline-block;
+            text-align: center;
+        }
+        &-logo {
+            @include sprite($footer-logo);
+            margin-bottom: 25px;
+            @media(max-width:768px) {
+                display: inline-block;
+            }
+            @media(max-width:576px) {
+                @include sprite($footer-logo-mob)
+            }
+        }
+        &-socials {
+            margin-bottom: 20px;
+            @media(max-width:768px) {
+                margin-bottom: 25px;
+            }
+           &-vk {
+            display: inline-block;
+            @include sprite($vk-footer);
+            margin-right: 16px;
+            @media(max-width:576px) {
+                @include sprite($vk-footer-mob);
+            }
+           }
+           &-inst {
+            display: inline-block;
+            @include sprite($instagram-footer);
+            margin-right: 16px;
+            @media(max-width:576px) {
+                @include sprite($instagram-footer-mon);
+            }
+           }
+        }
+        &-info {
+            max-width: 135px;
+            font-size: rem(12);
+            color: #fff;
+            @media(max-width:768px) {
+                max-width: initial;
+            }
+            @media(max-width:576px) {
+                font-size: rem(8);
+            }
+        }
+    }
+    &-left {
+       position: relative;
+       position: relative;
+       flex-wrap: wrap;
+       @media(max-width:768px) {
+           margin-bottom: 30px;
+       }
+       &::before {
+        content: '';
+        position: absolute;
+        right: -15px;
+        top: 0;
+        height: 100%;
+        width: 1px;
+        background: #fff;
+       }
+       @media(max-width:768px) {
+        justify-content: space-between;
+        &::before {
+            content: none;
+        }
+    }
+    }
+    &-right {
+        flex-wrap: wrap;
+        padding-left: 85px;
+        @media(max-width:1170px) {
+            padding-left: 50px;
+        }
+        @media(max-width:768px) {
+            padding-left: 0;
+        }
+    }
+}

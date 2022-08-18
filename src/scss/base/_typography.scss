@@ -11,8 +11,12 @@ li {
   list-style: none;
 }
 
-ul, ol {
+ul,
+ol {
   margin-bottom: 20px;
+  @media(max-width:768px) {
+      margin-bottom: 25px;
+  }
 }
 
 h1,
@@ -66,6 +70,10 @@ a {
   color: $linkColor;
   text-decoration: none;
   outline: none;
+  transition: 0.3s ease all;
+  &:hover {
+    color: #d7d0c0;
+  }
 }
 
 img {

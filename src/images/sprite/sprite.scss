@@ -1,0 +1,244 @@
+// SCSS variables are information about icon's compiled state, stored under its original file name
+//
+// .icon-home {
+//   width: $icon-home-width;
+// }
+//
+// The large array-like variables contain all information about a single icon
+// $icon-home: x y offset_x offset_y width height total_width total_height image_path;
+//
+// At the bottom of this section, we provide information about the spritesheet itself
+// $spritesheet: width height image $spritesheet-sprites;
+$arrow-back-name: 'arrow-back';
+$arrow-back-x: 0px;
+$arrow-back-y: 50px;
+$arrow-back-offset-x: 0px;
+$arrow-back-offset-y: -50px;
+$arrow-back-width: 21px;
+$arrow-back-height: 17px;
+$arrow-back-total-width: 1400px;
+$arrow-back-total-height: 3450px;
+$arrow-back-image: '../images/sprite/sprite.png';
+$arrow-back: (0px, 50px, 0px, -50px, 21px, 17px, 1400px, 3450px, '../images/sprite/sprite.png', 'arrow-back', );
+$background-koloski-name: 'background-koloski';
+$background-koloski-x: 0px;
+$background-koloski-y: 712px;
+$background-koloski-offset-x: 0px;
+$background-koloski-offset-y: -712px;
+$background-koloski-width: 1400px;
+$background-koloski-height: 2738px;
+$background-koloski-total-width: 1400px;
+$background-koloski-total-height: 3450px;
+$background-koloski-image: '../images/sprite/sprite.png';
+$background-koloski: (0px, 712px, 0px, -712px, 1400px, 2738px, 1400px, 3450px, '../images/sprite/sprite.png', 'background-koloski', );
+$footer-logo-mob-name: 'footer-logo-mob';
+$footer-logo-mob-x: 0px;
+$footer-logo-mob-y: 438px;
+$footer-logo-mob-offset-x: 0px;
+$footer-logo-mob-offset-y: -438px;
+$footer-logo-mob-width: 63px;
+$footer-logo-mob-height: 49px;
+$footer-logo-mob-total-width: 1400px;
+$footer-logo-mob-total-height: 3450px;
+$footer-logo-mob-image: '../images/sprite/sprite.png';
+$footer-logo-mob: (0px, 438px, 0px, -438px, 63px, 49px, 1400px, 3450px, '../images/sprite/sprite.png', 'footer-logo-mob', );
+$footer-logo-name: 'footer-logo';
+$footer-logo-x: 0px;
+$footer-logo-y: 557px;
+$footer-logo-offset-x: 0px;
+$footer-logo-offset-y: -557px;
+$footer-logo-width: 186px;
+$footer-logo-height: 145px;
+$footer-logo-total-width: 1400px;
+$footer-logo-total-height: 3450px;
+$footer-logo-image: '../images/sprite/sprite.png';
+$footer-logo: (0px, 557px, 0px, -557px, 186px, 145px, 1400px, 3450px, '../images/sprite/sprite.png', 'footer-logo', );
+$header-tel-name: 'header-tel';
+$header-tel-x: 0px;
+$header-tel-y: 77px;
+$header-tel-offset-x: 0px;
+$header-tel-offset-y: -77px;
+$header-tel-width: 23px;
+$header-tel-height: 22px;
+$header-tel-total-width: 1400px;
+$header-tel-total-height: 3450px;
+$header-tel-image: '../images/sprite/sprite.png';
+$header-tel: (0px, 77px, 0px, -77px, 23px, 22px, 1400px, 3450px, '../images/sprite/sprite.png', 'header-tel', );
+$instagram-footer-mon-name: 'instagram-footer-mon';
+$instagram-footer-mon-x: 0px;
+$instagram-footer-mon-y: 109px;
+$instagram-footer-mon-offset-x: 0px;
+$instagram-footer-mon-offset-y: -109px;
+$instagram-footer-mon-width: 24px;
+$instagram-footer-mon-height: 25px;
+$instagram-footer-mon-total-width: 1400px;
+$instagram-footer-mon-total-height: 3450px;
+$instagram-footer-mon-image: '../images/sprite/sprite.png';
+$instagram-footer-mon: (0px, 109px, 0px, -109px, 24px, 25px, 1400px, 3450px, '../images/sprite/sprite.png', 'instagram-footer-mon', );
+$instagram-footer-name: 'instagram-footer';
+$instagram-footer-x: 0px;
+$instagram-footer-y: 218px;
+$instagram-footer-offset-x: 0px;
+$instagram-footer-offset-y: -218px;
+$instagram-footer-width: 45px;
+$instagram-footer-height: 45px;
+$instagram-footer-total-width: 1400px;
+$instagram-footer-total-height: 3450px;
+$instagram-footer-image: '../images/sprite/sprite.png';
+$instagram-footer: (0px, 218px, 0px, -218px, 45px, 45px, 1400px, 3450px, '../images/sprite/sprite.png', 'instagram-footer', );
+$instagram-name: 'instagram';
+$instagram-x: 0px;
+$instagram-y: 273px;
+$instagram-offset-x: 0px;
+$instagram-offset-y: -273px;
+$instagram-width: 45px;
+$instagram-height: 45px;
+$instagram-total-width: 1400px;
+$instagram-total-height: 3450px;
+$instagram-image: '../images/sprite/sprite.png';
+$instagram: (0px, 273px, 0px, -273px, 45px, 45px, 1400px, 3450px, '../images/sprite/sprite.png', 'instagram', );
+$menu-close-btn-name: 'menu-close-btn';
+$menu-close-btn-x: 0px;
+$menu-close-btn-y: 24px;
+$menu-close-btn-offset-x: 0px;
+$menu-close-btn-offset-y: -24px;
+$menu-close-btn-width: 16px;
+$menu-close-btn-height: 16px;
+$menu-close-btn-total-width: 1400px;
+$menu-close-btn-total-height: 3450px;
+$menu-close-btn-image: '../images/sprite/sprite.png';
+$menu-close-btn: (0px, 24px, 0px, -24px, 16px, 16px, 1400px, 3450px, '../images/sprite/sprite.png', 'menu-close-btn', );
+$place-mark-mob-name: 'place-mark-mob';
+$place-mark-mob-x: 0px;
+$place-mark-mob-y: 0px;
+$place-mark-mob-offset-x: 0px;
+$place-mark-mob-offset-y: 0px;
+$place-mark-mob-width: 9px;
+$place-mark-mob-height: 14px;
+$place-mark-mob-total-width: 1400px;
+$place-mark-mob-total-height: 3450px;
+$place-mark-mob-image: '../images/sprite/sprite.png';
+$place-mark-mob: (0px, 0px, 0px, 0px, 9px, 14px, 1400px, 3450px, '../images/sprite/sprite.png', 'place-mark-mob', );
+$place-mark-name: 'place-mark';
+$place-mark-x: 0px;
+$place-mark-y: 179px;
+$place-mark-offset-x: 0px;
+$place-mark-offset-y: -179px;
+$place-mark-width: 18px;
+$place-mark-height: 29px;
+$place-mark-total-width: 1400px;
+$place-mark-total-height: 3450px;
+$place-mark-image: '../images/sprite/sprite.png';
+$place-mark: (0px, 179px, 0px, -179px, 18px, 29px, 1400px, 3450px, '../images/sprite/sprite.png', 'place-mark', );
+$slider-arrow-name: 'slider-arrow';
+$slider-arrow-x: 0px;
+$slider-arrow-y: 497px;
+$slider-arrow-offset-x: 0px;
+$slider-arrow-offset-y: -497px;
+$slider-arrow-width: 50px;
+$slider-arrow-height: 50px;
+$slider-arrow-total-width: 1400px;
+$slider-arrow-total-height: 3450px;
+$slider-arrow-image: '../images/sprite/sprite.png';
+$slider-arrow: (0px, 497px, 0px, -497px, 50px, 50px, 1400px, 3450px, '../images/sprite/sprite.png', 'slider-arrow', );
+$vk-footer-mob-name: 'vk-footer-mob';
+$vk-footer-mob-x: 0px;
+$vk-footer-mob-y: 144px;
+$vk-footer-mob-offset-x: 0px;
+$vk-footer-mob-offset-y: -144px;
+$vk-footer-mob-width: 23px;
+$vk-footer-mob-height: 25px;
+$vk-footer-mob-total-width: 1400px;
+$vk-footer-mob-total-height: 3450px;
+$vk-footer-mob-image: '../images/sprite/sprite.png';
+$vk-footer-mob: (0px, 144px, 0px, -144px, 23px, 25px, 1400px, 3450px, '../images/sprite/sprite.png', 'vk-footer-mob', );
+$vk-footer-name: 'vk-footer';
+$vk-footer-x: 0px;
+$vk-footer-y: 328px;
+$vk-footer-offset-x: 0px;
+$vk-footer-offset-y: -328px;
+$vk-footer-width: 44px;
+$vk-footer-height: 45px;
+$vk-footer-total-width: 1400px;
+$vk-footer-total-height: 3450px;
+$vk-footer-image: '../images/sprite/sprite.png';
+$vk-footer: (0px, 328px, 0px, -328px, 44px, 45px, 1400px, 3450px, '../images/sprite/sprite.png', 'vk-footer', );
+$vk-name: 'vk';
+$vk-x: 0px;
+$vk-y: 383px;
+$vk-offset-x: 0px;
+$vk-offset-y: -383px;
+$vk-width: 44px;
+$vk-height: 45px;
+$vk-total-width: 1400px;
+$vk-total-height: 3450px;
+$vk-image: '../images/sprite/sprite.png';
+$vk: (0px, 383px, 0px, -383px, 44px, 45px, 1400px, 3450px, '../images/sprite/sprite.png', 'vk', );
+$spritesheet-width: 1400px;
+$spritesheet-height: 3450px;
+$spritesheet-image: '../images/sprite/sprite.png';
+$spritesheet-sprites: ($arrow-back, $background-koloski, $footer-logo-mob, $footer-logo, $header-tel, $instagram-footer-mon, $instagram-footer, $instagram, $menu-close-btn, $place-mark-mob, $place-mark, $slider-arrow, $vk-footer-mob, $vk-footer, $vk, );
+$spritesheet: (1400px, 3450px, '../images/sprite/sprite.png', $spritesheet-sprites, );
+
+// The provided mixins are intended to be used with the array-like variables
+//
+// .icon-home {
+//   @include sprite-width($icon-home);
+// }
+//
+// .icon-email {
+//   @include sprite($icon-email);
+// }
+//
+// Example usage in HTML:
+//
+// `display: block` sprite:
+// <div class="icon-home"></div>
+//
+// To change `display` (e.g. `display: inline-block;`), we suggest using a common CSS class:
+//
+// // CSS
+// .icon {
+//   display: inline-block;
+// }
+//
+// // HTML
+// <i class="icon icon-home"></i>
+@mixin sprite-width($sprite) {
+  width: nth($sprite, 5);
+}
+
+@mixin sprite-height($sprite) {
+  height: nth($sprite, 6);
+}
+
+@mixin sprite-position($sprite) {
+  $sprite-offset-x: nth($sprite, 3);
+  $sprite-offset-y: nth($sprite, 4);
+  background-position: $sprite-offset-x  $sprite-offset-y;
+}
+
+@mixin sprite-image($sprite) {
+  $sprite-image: nth($sprite, 9);
+  background-image: url(#{$sprite-image});
+}
+
+@mixin sprite($sprite) {
+  @include sprite-image($sprite);
+  @include sprite-position($sprite);
+  @include sprite-width($sprite);
+  @include sprite-height($sprite);
+}
+
+// The `sprites` mixin generates identical output to the CSS template
+//   but can be overridden inside of SCSS
+//
+// @include sprites($spritesheet-sprites);
+@mixin sprites($sprites) {
+  @each $sprite in $sprites {
+    $sprite-name: nth($sprite, 10);
+    .#{$sprite-name} {
+      @include sprite($sprite);
+    }
+  }
+}

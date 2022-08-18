@@ -1,12 +1,17 @@
 /* base */
+
 @import "./base/vars.scss";
 @import "./base/typography.scss";
 @import "./base/grid.scss";
 @import "./base/mixin.scss";
+@import '../images/sprite/sprite.scss';
 
 /* layout */
 @import "./layout/inc-header.scss";
 @import "./layout/inc-footer.scss";
+@import "./layout/inc-topbanner.scss";
+@import "./layout/inc-services.scss";
+@import "./layout/inc-specialists.scss";
 
 /* pages */
 @import "index";
@@ -34,7 +39,7 @@ body {
   font-weight: 400;
   font-size: rem(16px);
   line-height: 1.42;
-  color: #000;
+  color: #333333;
   background-color: #fff;
 }
 
@@ -65,4 +70,46 @@ body {
   max-width: $widthContainer;
   padding-left: $paddingContainer;
   padding-right: $paddingContainer;
+}
+.bcg-image {
+  position: absolute !important;
+  bottom: 0;
+    transform: translate(-50%, 0px);
+    left: 50%;
+  z-index: -1;
+  @include sprite($background-koloski)
+}
+
+.order-btn-fixed {
+  display: none;
+  @media(max-width:1024px) {
+      display: inline-block;
+      position: fixed;
+      bottom: 0;
+      left: 50%;
+      transform: translate(-50%, 0px);
+  }
+
+}
+
+.swiper-button-next {
+  @include sprite($slider-arrow);
+  transform: rotate(180deg);
+  &:after {
+    content: none;
+  }
+}
+.swiper-button-prev {
+  @include sprite($slider-arrow);
+  &:after {
+    content: none;
+  }
+}
+
+// Yndex map style
+.ymaps-2-1-79-gototech {
+  display: none !important;
+}
+.ymaps-2-1-79-gototaxi, .ymaps-2-1-79-gotoymaps {
+  display: none !important;
 }
