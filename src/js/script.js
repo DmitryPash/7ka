@@ -19,11 +19,12 @@ const topSwiper = new Swiper('.topSwiper', {
   let btnmedia =  window.matchMedia("(max-width:1024px)")
 // Side Menu
 $('.header-contacts-contact').click(() => {
+  createmap('map1')
   $(document.body).addClass('overflow-hidden-cont')
-
-  $('.side-menu').toggleClass('opened');
+  $('.side-menu').addClass('opened');
+  $('.main-menu-overlay').addClass('opened');
   if(btnmedia.matches) {
-    $('.map ').css('top', $('.side-menu ').outerHeight())
+    $('.map ').css('top', $('.side-menu ').outerHeight() - 150)
   }
 
 })
@@ -31,16 +32,24 @@ $('.header-contacts-contact').click(() => {
 $('.side-menu-close-btn').click(() => {
   $(document.body).removeClass('overflow-hidden-cont')
   $('.side-menu').removeClass('opened');
+  $('.main-menu-overlay').removeClass('opened');
 })
 //Menu
 $('.header-menu').click(() => {
+  createmap('map2')
   $(document.body).addClass('overflow-hidden-menu')
-  $('.main-menu').toggleClass('opened');
+  $('.main-menu').addClass('opened');
+  $('.main-menu-overlay').addClass('opened');
+
+  if(btnmedia.matches) {
+    $('.map-main-menu ').css('top', $('.side-menu').outerHeight() - 150)
+  }
 })
 // close menu
 $('.main-menu-close-btn').click(() => {
   $(document.body).removeClass('overflow-hidden-menu')
   $('.main-menu').removeClass('opened');
+  $('.main-menu-overlay').removeClass('opened');
 })
 
 
@@ -105,12 +114,25 @@ $(".main-menu li").each(function (key, item) {
 
 
 // Change item in services
+if (matchMedia) {
+  var screen1024 = window.matchMedia("(min-width:1024px)");
+  screen1024.addListener(changes1024);
+  changes1024(screen1024);
+}
 
 if (matchMedia) {
   var screen768 = window.matchMedia("(max-width:768px)");
   screen768.addListener(changes768);
   changes768(screen768);
 }
+function changes1024(screen1024) {
+  if (screen1024.matches) {
+    $(".map").appendTo($(".header"));
+  } else {
+    $(".map").appendTo($(".side-menu"));
+  }
+}
+
 
 function changes768(screen768) {
   if (screen768.matches) {
@@ -129,31 +151,39 @@ function changes768(screen768) {
 
 
 
+
+// zxc = id дива на который вешается карта
 // Yendex map
-    ymaps.ready(init);
-    function init(){
-        // Создание карты.
-        var myMap = new ymaps.Map("map", {
-            // Координаты центра карты.
-            // Порядок по умолчанию: «широта, долгота».
-            // Чтобы не определять координаты центра карты вручную,
-            // воспользуйтесь инструментом Определение координат.
-            center: [55.76, 37.64],
-            // Уровень масштабирования. Допустимые значения:
-            // от 0 (весь мир) до 19.
-            zoom: 7,
-            controls: []
-        });
-    }
+function createmap(newmap) {
+  if($(newmap).attr('data-status') && $(newmap).attr('data-status') === 'ok') {
+    return
+  }
+  ymaps.ready(init);
+  $(newmap).attr('data-status', 'ok')
+  function init(){
+      var myMap = new ymaps.Map(newmap, {
+          center: [52.467765, 31.025600],
+          zoom: 17,
+          controls: [],
+      });
+      var placemark4 = new ymaps.Placemark([52.467765, 31.025600], {
+
+      })
+      myMap.geoObjects
+      .add(placemark4);
+
+  }
+}
+
 // open map
 
 $('.side-menu-map').click(() => {
   $('.map').toggleClass('opened')
-
   // document.body.style.overflowY = "hidden";
 })
 
 $('.header-contacts-contact-icon').click(() => {
+
   $('.map').addClass('opened')
 })
 
