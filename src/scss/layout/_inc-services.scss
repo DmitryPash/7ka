@@ -45,7 +45,7 @@
                 max-width: 150%;
                 transition: 0.3s ease all;
                 &:hover {
-                    transform: scale(1.03) translate(-50%, -50%);
+                    transform:  translate(-50%, -50%) scale(1.03);
                 }
             }
         }
