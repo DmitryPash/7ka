@@ -21,58 +21,38 @@ const topSwiper = new Swiper('.topSwiper', {
 $('.header-contacts-contact').click(() => {
   createmap('map1')
   $(document.body).addClass('overflow-hidden-cont')
-  $('.side-menu').addClass('opened');
+  $('.side-menu').addClass('opened-menu');
+
   $('.main-menu-overlay').addClass('opened');
-  if(btnmedia.matches) {
-    $('.map ').css('top', $('.side-menu ').outerHeight() - 150)
-  }
+
 
 })
 // close side-menu
 $('.side-menu-close-btn').click(() => {
   $(document.body).removeClass('overflow-hidden-cont')
-  $('.side-menu').removeClass('opened');
+
+  $('.side-menu').removeClass('opened-menu');
+
   $('.main-menu-overlay').removeClass('opened');
 })
 //Menu
 $('.header-menu').click(() => {
   createmap('map2')
-  $(document.body).addClass('overflow-hidden-menu')
-  $('.main-menu').addClass('opened');
-  $('.main-menu-overlay').addClass('opened');
+  $(document.body).addClass('overflow-hidden-cont')
+  $('.main-menu').addClass('opened-menu');
 
-  if(btnmedia.matches) {
-    $('.map-main-menu ').css('top', $('.side-menu').outerHeight() - 150)
-  }
+  $('.main-menu-overlay').addClass('opened');
 })
 // close menu
 $('.main-menu-close-btn').click(() => {
-  $(document.body).removeClass('overflow-hidden-menu')
-  $('.main-menu').removeClass('opened');
+  $(document.body).removeClass('overflow-hidden-cont')
+  $('.main-menu').removeClass('opened-menu');
+  $('.main-menu > ul > li > ul').removeClass('opened')
   $('.main-menu-overlay').removeClass('opened');
 })
 
 
-// !!!!
-// $(document).ready(function(){
-//   $("#logoup").click(function(){
-//   $('#logoup').toggleClass('move');}
-//               });
 
-// if  ( !$("#logoup").hasClass('move') ) {
-//        $("#logo").animate({top:"-=200"}, "slow");
-//        $(".menu-main").animate({top:"+=50"}, "slow");
-//        $("#contact").show(1000);
-// }
-
-// } else {
-//         $("#logo").animate({top:"+=200"}, "slow"
-//         $(".menu-main").animate({top:"-=50"}, "slow");
-//         $("#contact").hide(1000);
-// }
-//     });
-// });
-// !!!!
 
 
 $(".main-menu li").each(function (key, item) {
@@ -152,14 +132,17 @@ function changes768(screen768) {
 
 
 
-// zxc = id дива на который вешается карта
+
 // Yendex map
 function createmap(newmap) {
-  if($(newmap).attr('data-status') && $(newmap).attr('data-status') === 'ok') {
+
+  if($('#' + newmap).attr('data-status') && $('#' + newmap).attr('data-status') === 'ok') {
     return
   }
   ymaps.ready(init);
-  $(newmap).attr('data-status', 'ok')
+
+
+  console.log($(newmap).attr('data-status'))
   function init(){
       var myMap = new ymaps.Map(newmap, {
           center: [52.467765, 31.025600],
@@ -167,11 +150,11 @@ function createmap(newmap) {
           controls: [],
       });
       var placemark4 = new ymaps.Placemark([52.467765, 31.025600], {
-
       })
       myMap.geoObjects
       .add(placemark4);
-
+      myMap.behaviors.disable('scrollZoom');
+       $('#' + newmap).attr('data-status', 'ok')
   }
 }
 
@@ -208,5 +191,5 @@ $('.side-menu-close-btn').click(() => {
 })
 
 
-// Height
+
 

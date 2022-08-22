@@ -36,8 +36,12 @@
   }
   &-wrapper {
     line-height: 0;
+    .swiper-slide-picture {
+      max-height: 400px;
+    }
   }
 }
+
 
 
 // Swipper style
