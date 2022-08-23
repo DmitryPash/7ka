@@ -39,6 +39,8 @@ $('.side-menu-close-btn').click(() => {
 $('.header-menu').click(() => {
   createmap('map2')
   $(document.body).addClass('overflow-hidden-cont')
+  //Анимация меню
+$('.main-menu > ul > li').addClass('menu-animate')
   $('.main-menu').addClass('opened-menu');
 
   $('.main-menu-overlay').addClass('opened');
@@ -47,6 +49,7 @@ $('.header-menu').click(() => {
 $('.main-menu-close-btn').click(() => {
   $(document.body).removeClass('overflow-hidden-cont')
   $('.main-menu').removeClass('opened-menu');
+  $('.main-menu > ul > li').removeClass('menu-animate')
   $('.main-menu > ul > li > ul').removeClass('opened')
   $('.main-menu-overlay').removeClass('opened');
 })
@@ -140,9 +143,6 @@ function createmap(newmap) {
     return
   }
   ymaps.ready(init);
-
-
-  console.log($(newmap).attr('data-status'))
   function init(){
       var myMap = new ymaps.Map(newmap, {
           center: [52.467765, 31.025600],
@@ -185,11 +185,31 @@ if(btnmedia.matches) {
 }
 
 
-
+// Скрываем карту
 $('.side-menu-close-btn').click(() => {
   $('.map').removeClass('opened');
 })
 
+// Убераем отступ у шапки на странице index.html
+if(document.querySelector('.top-banner')) {
+ window.addEventListener('resize', () => {
+  if (window.matchMedia('(max-width: 1024px)').matches) {
+    $('.header').css("margin-bottom", '0px')
+  } else {
+    $('.header').css("margin-bottom", '50px')
+  }
+ })
+}
 
 
 
+
+
+ let price = document.querySelector('.price')
+
+price.addEventListener('click', (e) => {
+  if(e.target.classList[0] === 'price-item-toggle') {
+    e.target.classList.toggle('opened-arrow')
+    e.target.closest('.price-item').children[1].classList.toggle('opened')
+  }
+})

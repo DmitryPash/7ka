@@ -1,0 +1,46 @@
+.price {
+    &-item {
+        &-wrap {
+            background: #d7d0c0;
+            padding: 20px 40px;
+            margin-bottom: 2px;
+        }
+        &-title {
+            text-transform: uppercase;
+            font-size: rem(24);
+            font-weight: 700;
+
+        }
+        &-toggle {
+            width: 20px;
+            height: 20px;
+            background-color: black;
+        }
+        &-table {
+            display: none;
+            height: 120px;
+            overflow-y: auto;
+            max-width: 785px;
+            margin: 0 auto;
+            &.opened {
+                margin-top: 35px;
+                margin-bottom: 35px;
+            }
+            &-date {
+                font-size: rem(11);
+                font-weight: 700;
+            }
+            table {
+                width: 100%;
+                border-collapse: collapse;
+                font-size: rem(11);
+                tr, th, td {
+                    border: 1px solid #d2d2d2;
+                }
+                tr td:last-child {
+                    text-align: right;
+                }
+            }
+        }
+    }
+}

@@ -1,24 +1,67 @@
 .news {
     &-item {
+        &:last-child {
+            margin-bottom: 0;
+        }
+        margin-bottom: 30px;
         &-img {
+            display: block;
             line-height: 0;
+            overflow: hidden;
+            img {
+                transition: 0.3s ease all;
+                &:hover {
+                transform: scale(1.03);
+                }
+            }
+            @media(max-width:576px) {
+                margin-bottom: 25px;
+            }
         }
         &-wrap {
-            padding-left: 75px;
             max-width: 675px;
-            @media(max-width:1024px) {
-                padding-left: 0;
-            }
-
+            height: 100%;
+            border-bottom: 1px solid #333333;
         }
         &-title {
+            display: block;
             font-weight: 800;
             font-size: rem(30);
             margin-bottom: 25px;
+            text-transform: uppercase;
+            @media(max-width:768px) {
+                font-size: rem(24);
+            }
+            @media(max-width:576px) {
+                font-size: rem(14);
+            }
         }
         &-text {
             font-size: rem(18);
+            margin-bottom: 25px;
+            @media(max-width:768px) {
+                font-size: rem(16);
+            }
+            @media(max-width:576px) {
+                font-size: rem(10);
+            }
         }
 
+    }
+}
+
+.news-row {
+    margin-left: -40px;
+    margin-right: -40px;
+    @media(max-width:1024px) {
+        margin: 0px -15px;
+    }
+}
+
+.col-news {
+    padding-left: 40px;
+    padding-right: 40px;
+    @media(max-width:1024px) {
+        padding: 0px 15px;
     }
 }
