@@ -19,6 +19,8 @@ const topSwiper = new Swiper('.topSwiper', {
   let btnmedia =  window.matchMedia("(max-width:1024px)")
 // Side Menu
 $('.header-contacts-contact').click(() => {
+  const margin = getScrollBarWidth()
+  document.body.style.marginRight = margin + 'px'
   createmap('map1')
   $(document.body).addClass('overflow-hidden-cont')
   $('.side-menu').addClass('opened-menu');
@@ -30,17 +32,20 @@ $('.header-contacts-contact').click(() => {
 // close side-menu
 $('.side-menu-close-btn').click(() => {
   $(document.body).removeClass('overflow-hidden-cont')
+  document.body.style.marginRight = 0
 
   $('.side-menu').removeClass('opened-menu');
-
   $('.main-menu-overlay').removeClass('opened');
 })
+
 //Menu
 $('.header-menu').click(() => {
+  const margin = getScrollBarWidth()
+  document.body.style.marginRight = margin + 'px'
   createmap('map2')
   $(document.body).addClass('overflow-hidden-cont')
   //Анимация меню
-$('.main-menu > ul > li').addClass('menu-animate')
+  $('.main-menu > ul > li').addClass('menu-animate')
   $('.main-menu').addClass('opened-menu');
 
   $('.main-menu-overlay').addClass('opened');
@@ -48,9 +53,10 @@ $('.main-menu > ul > li').addClass('menu-animate')
 // close menu
 $('.main-menu-close-btn').click(() => {
   $(document.body).removeClass('overflow-hidden-cont')
+  document.body.style.marginRight = 0
   $('.main-menu').removeClass('opened-menu');
   $('.main-menu > ul > li').removeClass('menu-animate')
-  $('.main-menu > ul > li > ul').removeClass('opened')
+  $('.main-menu ul').removeClass('opened')
   $('.main-menu-overlay').removeClass('opened');
 })
 
@@ -59,26 +65,20 @@ $('.main-menu-close-btn').click(() => {
 
 
 $(".main-menu li").each(function (key, item) {
-    if ($(item).find("ul").length) {
-      $(item).addClass("childs-in");
-      $(item).find("a:first").append('<i class="childs-toggler" onclick=""></i>');
-    }
-  });
+  if ($(item).find("ul").length) {
+    $(item).addClass("childs-in");
+    $(item).find("a:first").append('<i class="childs-toggler" onclick=""></i>');
+  }
+});
 
-  $(document).on("click", ".childs-toggler", function (e) {
+  $(document).on("click", ".childs-in", function (e) {
     e.preventDefault();
+    const current = $(this).find("ul")
+    if (!current) return
+
+    $(".main-menu ul").not(current).removeClass('opened');
     $(this).toggleClass("opened");
-    $(this).closest("a").next("ul").toggleClass("opened");
-
-    let childsTogglerd = document.querySelectorAll('ul.opened')
-
-    for(let i = 0; i < childsTogglerd.length; i++) {
-      if(childsTogglerd[i].classList[0] === 'opened') {
-        childsTogglerd[i].classList.remove('opened')
-        $(this).closest("a").next("ul")[0].classList.add('opened')
-
-      }
-    }
+    current.toggleClass("opened");
   });
 
 
@@ -205,6 +205,40 @@ if(document.querySelector('.top-banner')) {
 }
 
 
+$('.main-menu-overlay').on('click',function(e){
+  e.preventDefault();
+
+  document.body.style.marginRight = 0
+  $('.main-menu, .side-menu').removeClass('opened-menu');
+  $('.main-menu, .main-menu ul').removeClass('opened');
+  $(this).removeClass('opened');
+  $(document.body).removeClass('overflow-hidden-cont');
+  $('.main-menu li').removeClass('menu-animate');
+})
 
 
+function getScrollBarWidth () {
+  var inner = document.createElement('p');
+  inner.style.width = "100%";
+  inner.style.height = "200px";
 
+  var outer = document.createElement('div');
+  outer.style.position = "absolute";
+  outer.style.top = "0px";
+  outer.style.left = "0px";
+  outer.style.visibility = "hidden";
+  outer.style.width = "200px";
+  outer.style.height = "150px";
+  outer.style.overflow = "hidden";
+  outer.appendChild (inner);
+
+  document.body.appendChild (outer);
+  var w1 = inner.offsetWidth;
+  outer.style.overflow = 'scroll';
+  var w2 = inner.offsetWidth;
+  if (w1 == w2) w2 = outer.clientWidth;
+
+  document.body.removeChild (outer);
+
+  return (w1 - w2);
+};

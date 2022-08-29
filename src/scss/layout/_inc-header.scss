@@ -175,12 +175,43 @@
   width: 360px;
   transform: translateX(-100%);
   transition: .5s;
+  // overflow-y: auto;
+
+  & > ul {
+    max-height: calc(100vh - 150px);
+    scrollbar-width: 0;
+    overflow-y: auto;
+
+    &::-webkit-scrollbar {
+      width: 0;
+      height: 0;
+      -webkit-appearance: none;
+    }
+  }
+
+  ul ul {
+    scrollbar-width: 0;
+    overflow-y: auto;
+    border-right: 1px solid #000;
+
+    &::-webkit-scrollbar {
+      width: 0;
+      height: 0;
+      -webkit-appearance: none;
+    }
+  }
+
   // width: 0;
-  @media(max-width:1024px) {
+  @media(max-width:768px) {
       width: 100%;
       // height: 100vh;
       padding-bottom: 0px;
       overflow-y: auto;
+
+      & > ul,
+      ul ul {
+        max-height: none;
+      }
 
       & ul {
         margin-bottom: 40px;
@@ -189,12 +220,13 @@
   &-overlay {
     display: none;
     content: '';
-    width: 999999px;
-    height: 9999999px;
-    position: absolute;
+    width: 100%;
+    height: 100%;
+    position: fixed;
     z-index: 100;
     top: 0;
     left: 0;
+    cursor: pointer;
   }
   &-close-btn {
     @include sprite($menu-close-btn);
@@ -253,6 +285,8 @@
   text-align: center;
   transform: translateX(100%);
   transition: .5s;
+  overflow-y: auto;
+
   @media(max-width:1024px) {
       width: 100%;
       height: 100vh;
