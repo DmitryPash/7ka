@@ -47,18 +47,7 @@ $('.main-menu > ul > li').addClass('menu-animate')
 })
 
 
-
-
-
-
-
-$(".main-menu li").each(function (key, item) {
-    if ($(item).find("ul").length) {
-      $(item).addClass("childs-in");
-      $(item).find("a:first").append('<i class="childs-toggler" onclick=""></i>');
-    }
-  });
-
+// Основа
   // $('.childs-in').each(function(){
   //   $(this).click(() => {
   //     $(this).children('ul').toggleClass('opened')
@@ -71,11 +60,27 @@ $(".main-menu li").each(function (key, item) {
   //     $(this).closest('ul').removeClass('opened')
   //   })
   // })
-// Основа
 
-  $(document).on('click', '.main-menu-close-mobile', function(){
-    $(this).closest('ul').removeClass('opened')
-  })
+  // $('.menu-animate').click(function() {
+  //   console.log('zxc')
+  //   $(this).addClass('opened')
+  // })
+
+
+
+$(".main-menu li").each(function (key, item) {
+    if ($(item).find("ul").length) {
+      $(item).addClass("childs-in");
+      $(item).find("a:first").append('<i class="childs-toggler" onclick=""></i>');
+    }
+  });
+
+
+
+
+  // $(document).on('click', '.main-menu-close-mobile', function(){
+  //   $(this).closest('ul').removeClass('opened')
+  // })
 
   $(document).on("click", ".childs-toggler", function (e) {
     e.preventDefault();
@@ -94,6 +99,41 @@ $(".main-menu li").each(function (key, item) {
     }
   });
   //end main
+
+  
+  // $(document).on("click", ".main-menu-close-mobile", function (e) {
+  //   e.preventDefault();
+  //   let childsTogglerd = document.querySelectorAll('ul.opened')
+
+  //   console.log(childsTogglerd)
+
+  //   for(let i = 0; i < childsTogglerd.length; i++) {
+  //     if(childsTogglerd[i].classList[0] === 'opened') {
+  //       console.log(childsTogglerd)
+  //       childsTogglerd[i].classList.remove('opened')
+  //       // $(this).children("ul").addClass('opened')
+
+  //     }
+  //   }
+  // })
+
+  //  $(document).on("click", ".childs-in", function (e) {
+  //   e.preventDefault();
+  //   $(this).children('ul').addClass('opened')
+  //   // $(this).toggleClass("opened");
+  //   // $(this).closest("a").next("ul").toggleClass("opened");
+
+  //   let childsTogglerd = document.querySelectorAll('ul.opened')
+  //   console.log(childsTogglerd + '1')
+  //   for(let i = 0; i < childsTogglerd.length; i++) {
+  //     if(childsTogglerd[i].classList[0] === 'opened') {
+
+  //       childsTogglerd[i].classList.remove('opened')
+  //       $(this).children("ul").addClass('opened')
+
+  //     }
+  //   }
+  // });
   
   // $(document).on("click", ".childs-in", function (e) {
   //   e.preventDefault();
