@@ -5,7 +5,7 @@
   left: 0;
   height: 100vh;
   width: calc(100% - 420px);
-  z-index: 9;
+  z-index: 120;
   @media(max-width:1024px) {
       width: 100%;
       height: 505px;
@@ -33,9 +33,15 @@
   border-bottom: 1px solid #333333;
   margin-bottom: 50px;
   @media(max-width:1024px) {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
       margin-bottom: 25px;
       border-bottom: none;
       padding-bottom: 0;
+      background-color: #fff;
+      z-index: 99;
   }
   &-wrapper {
     @media(max-width:1024px) {
@@ -47,6 +53,13 @@
   &-logo {
     display: block;
     text-align: center;
+    img {
+      max-height: 145px;
+      @media(max-width:1024px) {
+        max-height: 100px;
+      }
+    }
+    
   }
   &-toggler {
     display: inline-block;
@@ -163,6 +176,7 @@
 }
 // Side menu
 .main-menu {
+  // overflow-y: scroll;
   z-index: 999;
   width: 0;
   // display: none;
@@ -176,6 +190,7 @@
   transform: translateX(-100%);
   transition: .5s;
   // width: 0;
+
   @media(max-width:1024px) {
       width: 100%;
       // height: 100vh;
@@ -189,12 +204,13 @@
   &-overlay {
     display: none;
     content: '';
-    width: 999999px;
-    height: 9999999px;
-    position: absolute;
+    width: 100%;
+    height: 100%;
+    position: fixed;
     z-index: 100;
     top: 0;
     left: 0;
+    cursor: pointer;
   }
   &-close-btn {
     @include sprite($menu-close-btn);
@@ -209,8 +225,17 @@
   }
   &-close-mobile {
     display: none;
+    &::after {
+      content: '';
+      position: absolute;
+      height: 40px;
+      width: 40px;
+      right: 0;
+      top: -50%;
+    }
     @media(max-width:1024px) {
         display: inline-block;
+
     }
   }
   &-wrap-mobile {
@@ -219,7 +244,14 @@
         display: block;
         text-align: center;
         margin-bottom: 30px;
+        &-num {
+          span {
+            display: block;
+            font-weight: 700;
+          }
+        }
     }
+    
     .footer-contacts-num span{
       color: #333333;
       font-size: rem(14);
@@ -241,7 +273,8 @@
 }
 .side-menu {
   z-index: 999;
-  // display: none;
+  // display: none;'
+  overflow-y: auto;
   position: fixed;
   right: 0;
   top: 0;
@@ -461,20 +494,29 @@
     position: fixed;
     width: 360px;
     height: 100vh;
-    top: 0;
+    top: 0px;
     left: 360px;
     padding: 75px 0px;
     background: #ffffff;
     z-index: 99;
+    border-right: 2px solid #d7d0c0;
     @media(max-width:1024px) {
         left: 0;
         width: 100%;
     }
+
     & > li:hover {
+      position: relative;
+      z-index: 9;
       background: #d7d0c0;
+      border-top: 1px solid #fff;
+      border-bottom: 1px solid #fff;
       a span {
         color: #fff;
-        border-bottom: 1px solid transparent;
+        position: relative;
+        z-index: 1;
+        border-top: 1px solid #fff;
+        border-bottom: 1px solid #fff;
       }
     }
   }
@@ -488,6 +530,15 @@
 
   .childs-toggler-arrow {
     display: none;
+    &::after {
+      content: '';
+      position: absolute;
+      height: 40px;
+      width: 40px;
+      left: 0;
+      transform: rotate(0deg);
+      top: -50%;
+    }
     @media(max-width:1024px) {
       display: inline-block;
       top: 35px;

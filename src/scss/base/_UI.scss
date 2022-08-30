@@ -1,0 +1,60 @@
+.ui {
+    &-title {
+        text-align: center;
+        font-size: rem(40);
+        font-weight: 700;
+        margin-bottom: 50px;
+        text-transform: uppercase;
+        @media(max-width:576px) {
+            margin-bottom: 15px;
+            font-size: rem(18);
+        }
+    }
+    &-acardion {
+        &-body {
+            display: block;
+        }
+        &-title {
+            position: relative;
+            cursor: pointer;
+            text-align: center;
+        }
+    }
+    &-header {
+        position: relative;
+        margin-bottom: 50px;
+        @media(max-width:576px) {
+            margin-bottom: 30px;
+        }
+        &-arrow {
+          position: absolute;
+          left: 0;
+          top: 0;
+          &:hover {
+            left: -3px
+          }
+          @include sprite($back-page);
+          @media(max-width:768px) {
+            transform: translate(0,-50%) scale(0.8);
+          }
+        }
+        &-content {
+          text-align: center;
+          width: 100%;
+          padding: 0px 50px;
+          &-tabs {
+            font-size: rem(14);
+          }
+          &-title {
+            font-size: rem(40);
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-bottom: 0;
+            @media(max-width:768px) {
+              padding: 0px 25px;
+                font-size: rem(18);
+            }
+          }
+        }
+      }
+}

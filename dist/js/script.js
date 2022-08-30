@@ -45,14 +45,8 @@ $('.main-menu > ul > li').addClass('menu-animate')
 
   $('.main-menu-overlay').addClass('opened');
 })
-// close menu
-$('.main-menu-close-btn').click(() => {
-  $(document.body).removeClass('overflow-hidden-cont')
-  $('.main-menu').removeClass('opened-menu');
-  $('.main-menu > ul > li').removeClass('menu-animate')
-  $('.main-menu > ul > li > ul').removeClass('opened')
-  $('.main-menu-overlay').removeClass('opened');
-})
+
+
 
 
 
@@ -65,6 +59,24 @@ $(".main-menu li").each(function (key, item) {
     }
   });
 
+  // $('.childs-in').each(function(){
+  //   $(this).click(() => {
+  //     $(this).children('ul').toggleClass('opened')
+  //   })
+
+  // })
+
+  // $('.main-menu-close-btn.main-menu-close-mobile').each(function(){
+  //   $(this).click(() => {
+  //     $(this).closest('ul').removeClass('opened')
+  //   })
+  // })
+// Основа
+
+  $(document).on('click', '.main-menu-close-mobile', function(){
+    $(this).closest('ul').removeClass('opened')
+  })
+
   $(document).on("click", ".childs-toggler", function (e) {
     e.preventDefault();
     $(this).toggleClass("opened");
@@ -74,23 +86,80 @@ $(".main-menu li").each(function (key, item) {
 
     for(let i = 0; i < childsTogglerd.length; i++) {
       if(childsTogglerd[i].classList[0] === 'opened') {
+
         childsTogglerd[i].classList.remove('opened')
         $(this).closest("a").next("ul")[0].classList.add('opened')
 
       }
     }
   });
+  //end main
+  
+  // $(document).on("click", ".childs-in", function (e) {
+  //   e.preventDefault();
+  //   // $(this).toggleClass("opened");
+  //   // console.log($(this).children('ul').addClass('zxc'))
+  //   $(this).children('ul').addClass('opened')
+
+  //   // let ch = $(this).children('ul')[0]
+  //   // console.log(ch.classList)
+  //   // ch.addClass('zxc')
+  //   // $(this).children[0].next("ul").toggleClass("opened");
+
+  //   let childsTogglerd = document.querySelectorAll('ul.opened')
+
+  //   for(let i = 0; i < childsTogglerd.length; i++) {
+  //     if(childsTogglerd[i].classList[0] === 'opened') {
+  //       childsTogglerd[i].classList.remove('opened')
+  //       $(this).closest("a").next("ul")[0].classList.add('opened')
+  //     }
+  //   }
+  // });
+
+
+
+
+  // $(document).on("click", ".childs-in", function (e) {
+  //   e.preventDefault();
+  //   $(this).toggleClass("opened");
+  //   $(this).children("ul").toggleClass("opened");
+
+
+  //   let childsTogglerd = document.querySelectorAll('ul.opened')
+
+  //   for(let i = 0; i < childsTogglerd.length; i++) {
+  //     if(childsTogglerd[i].classList[0] === 'opened') {
+  //       childsTogglerd[i].classList.remove('opened')
+
+  //       $(this).children("ul")[0].classList.add('opened')
+       
+  //     }
+  //   }
+  // });
+
+  // $('.main-menu-close-mobile').click(() => {
+  //   console.log('zxc')
+  //   let toggleMobile = $('.main-menu-close-mobile')
+  //   toggleMobile.closest('ul.opened').removeClass('opened')
+  //   console.log(toggleMobile.closest('ul.opened'))
+  // })
+
 
 
 
 // specialists slider
   var specialistsSwiper = new Swiper(".swiper-specialists", {
-    slidesPerView: 4,
+    slidesPerView: 1,
     spaceBetween: 20,
     navigation: {
       nextEl: '.swiper-specialists-next',
       prevEl: '.swiper-specialists-prev',
     },
+    breakpoints: {
+      768: {
+        slidesPerView: 4,
+      }
+    }
   });
 
 
@@ -111,8 +180,15 @@ if (matchMedia) {
 function changes1024(screen1024) {
   if (screen1024.matches) {
     $(".map").appendTo($(".header"));
+    $('.wrapper').css('padding-top', 0)
   } else {
     $(".map").appendTo($(".side-menu"));
+    let headerHeight = $('.header').outerHeight()
+    if(document.querySelector('.top-banner')) {
+      $('.wrapper').css('padding-top', headerHeight)
+    } else {
+    $('.wrapper').css('padding-top', headerHeight + 50)
+    }
   }
 }
 
@@ -143,16 +219,54 @@ function createmap(newmap) {
     return
   }
   ymaps.ready(init);
+
   function init(){
       var myMap = new ymaps.Map(newmap, {
           center: [52.467765, 31.025600],
           zoom: 17,
           controls: [],
-      });
-      var placemark4 = new ymaps.Placemark([52.467765, 31.025600], {
       })
-      myMap.geoObjects
-      .add(placemark4);
+      MyIconContentLayout = ymaps.templateLayoutFactory.createClass(
+        '<div style="color: #FFFFFF; font-weight: bold;">$[properties.iconContent]</div>'
+      ),
+      myPlacemarkWithContent = new ymaps.Placemark(
+        [52.467765, 31.025600],
+        {
+          hintContent: "Собственный значок метки с контентом",
+          balloonContent: "Мы тут!",
+          iconContent: "12",
+        },
+        {
+          // Опции.
+          // Необходимо указать данный тип макета.
+          iconLayout: "default#imageWithContent",
+          // Своё изображение иконки метки.
+        iconImageHref: 'images/icon/location-pin.png',
+
+
+          // Размеры метки.
+          iconImageSize: [24, 24],
+          // Смещение левого верхнего угла иконки относительно
+          // её "ножки" (точки привязки).
+          iconImageOffset: [-24, -24],
+          // Смещение слоя с содержимым относительно слоя с картинкой.
+          iconContentOffset: [15, 15],
+          // Макет содержимого.
+          iconContentLayout: MyIconContentLayout,
+        }
+      );
+
+    myMap.geoObjects.add(myPlacemarkWithContent);
+
+      // var placemark4 = new ymaps.Placemark([52.467765, 31.025600], {
+      //   iconLayout: 'default#image',
+      //   // iconImageHref: 'https://cdn-icons-png.flaticon.com/512/2776/2776000.png',
+      //   // iconImageHref: 'images/icons/place-mark.png',
+      //   iconImageSize: [20, 20],
+      //   iconImageOffset: [20, 0],
+      // })
+      // myMap.geoObjects
+      // .add(placemark4);
       myMap.behaviors.disable('scrollZoom');
        $('#' + newmap).attr('data-status', 'ok')
   }
@@ -202,14 +316,48 @@ if(document.querySelector('.top-banner')) {
 }
 
 
+// Ui accardion
+$(document).ready(function() {
+	$('.ui-acardion-title').on('click', function fOpen() {
+    $(this).next().slideToggle(300);
+    $(this).children('.ui-acardion-arrow').toggleClass('opened-arrow');
+});
+});
+{/* <div class="ui-acardion-title">
+<div class="ui-acardion-arrow"></div>
+</div>
+<div class="ui-acardion-body"></div> */}
+
+lightGallery(document.getElementById('aboutusGallery'), {
+  // speed: 500,
+  selector: '.aboutus-gallery-item',
+});
+
+
+// Закрытия меню по клику на оверлей
+
+$('.main-menu-overlay').click(() => {
+  $('.main-menu').removeClass('opened-menu')
+  $('.side-menu').removeClass('opened-menu')
+  $('.main-menu-overlay').removeClass('opened')
+  $('.main-menu > ul > li').removeClass('menu-animate')
+    $('.main-menu > ul > li > ul').removeClass('opened')
+})
 
 
 
- let price = document.querySelector('.price')
 
-price.addEventListener('click', (e) => {
-  if(e.target.classList[0] === 'price-item-toggle') {
-    e.target.classList.toggle('opened-arrow')
-    e.target.closest('.price-item').children[1].classList.toggle('opened')
-  }
+
+
+
+  // close menu
+
+$('.main-menu-close-btn').click(() => {
+  $('.main-menu > ul > li > ul').removeClass('opened')
+
+  $(document.body).removeClass('overflow-hidden-cont')
+  $('.main-menu').removeClass('opened-menu');
+  $('.main-menu > ul > li').removeClass('menu-animate')
+  $('.main-menu-overlay').removeClass('opened');
+
 })

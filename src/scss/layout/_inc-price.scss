@@ -1,40 +1,61 @@
 .price {
     &-item {
+        margin-bottom: 2px;
+        &:last-child {
+            margin-bottom: 0;
+        }
         &-wrap {
             background: #d7d0c0;
             padding: 20px 40px;
-            margin-bottom: 2px;
+            cursor: pointer;
+            @media(max-width:768px) {
+                padding: 10px 20px;
+
+            }
         }
         &-title {
             text-transform: uppercase;
             font-size: rem(24);
             font-weight: 700;
-
+            padding-right: 20px;
+            @media(max-width:768px) {
+                font-size: rem(14);
+            }
         }
         &-toggle {
-            width: 20px;
-            height: 20px;
-            background-color: black;
+            cursor: pointer;
+            flex: 0 0 24px;
+            max-width: 24px;
+            @include sprite($table-arrow);
         }
         &-table {
             display: none;
-            height: 120px;
-            overflow-y: auto;
             max-width: 785px;
             margin: 0 auto;
-            &.opened {
-                margin-top: 35px;
+            margin-top: 35px;
                 margin-bottom: 35px;
-            }
+                padding: 0px 20px;
+                @media(max-width:768px) {
+                    margin-top: 15px;
+                    margin-bottom: 5px;
+                }
+
             &-date {
-                font-size: rem(11);
+                font-size: rem(14);
                 font-weight: 700;
+                @media(max-width:768px) {
+                    font-size: rem(11);
+                }
             }
             table {
                 width: 100%;
                 border-collapse: collapse;
-                font-size: rem(11);
+                font-size: rem(14);
+                @media(max-width:768px) {
+                    font-size: rem(11);
+                }
                 tr, th, td {
+                    padding: 4px 10px;
                     border: 1px solid #d2d2d2;
                 }
                 tr td:last-child {

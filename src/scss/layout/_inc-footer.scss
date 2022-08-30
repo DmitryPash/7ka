@@ -2,10 +2,14 @@
 
 .footer {
     background-image: url(./../images/bg/footer-back.png);
+    background-color: #97755e;
     background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
+    // background-size: cover;
+    background-position: center top;
     padding: 50px 0px;
+    @media(max-width:768px) {
+        background-position: center bottom;
+    }
     &-directions {
         flex: 0 0 65%;
         max-width: 65%;
@@ -159,14 +163,17 @@
             text-align: center;
         }
         &-logo {
-            @include sprite($footer-logo);
+            // @include sprite($footer-logo);
             margin-bottom: 25px;
-            @media(max-width:768px) {
-                display: inline-block;
+            img {
+                max-height: 145px;
             }
-            @media(max-width:576px) {
-                @include sprite($footer-logo-mob)
-            }
+            // @media(max-width:768px) {
+            //     display: inline-block;
+            // }
+            // @media(max-width:576px) {
+            //     @include sprite($footer-logo-mob)
+            // }
         }
         &-socials {
             margin-bottom: 20px;

@@ -1,0 +1,22 @@
+.news-page {
+    &-article {
+        font-size: rem(18);
+        @media(max-width:768px) {
+            font-size: rem(10);
+        }
+        img {
+            line-height: 0;
+            margin-bottom: 50px;
+            max-height: 280px;
+
+            @media(max-width:768px) {
+                margin-bottom: 30px;
+            }
+        }
+        p {
+
+            margin-bottom: 30px;
+
+        }
+    }
+}

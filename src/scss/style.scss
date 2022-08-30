@@ -5,6 +5,8 @@
 @import "./base/grid.scss";
 @import "./base/mixin.scss";
 @import '../images/sprite/sprite.scss';
+@import "./base/UI.scss";
+
 
 /* layout */
 @import "./layout/inc-header.scss";
@@ -15,6 +17,10 @@
 @import "./layout/inc-news.scss";
 @import "./layout/inc-experts.scss";
 @import "./layout/inc-price.scss";
+@import "./layout/inc-gynecology.scss";
+@import "./layout/inc-aboutus.scss";
+@import "./layout/inc-newsitem.scss";
+@import "./layout/inc-document.scss";
 
 /* pages */
 @import "index";
@@ -58,6 +64,7 @@ body {
 }
 
 #middle {
+  position: relative;
   flex: 1 0 auto;
   -webkit-box-flex: 1;
   padding-bottom: 65px;
@@ -79,13 +86,17 @@ body {
   padding-right: $paddingContainer;
 }
 .bcg-image {
-  width: 100% !important;
-  position: absolute !important;
+  width: 100%;
+  height: 100%;
+  background: #fff;
+  position: absolute;
   bottom: 0;
     transform: translate(-50%, 0px);
     left: 50%;
   z-index: -1;
-  @include sprite($background-koloski)
+  background-image: url(../images/bg/background-koloski.png);
+  background-repeat: no-repeat;
+  background-position: center bottom;
 }
 
 .order-btn-fixed {
@@ -143,4 +154,36 @@ body {
 
 .opened-menu {
   transform: translateX(0%);
+}
+
+.opened-arrow {
+  transform: rotate(180deg);
+}
+
+// Breadcrumbs
+[class*="-breadcrumbs"] {
+  text-align: center;
+  font-size: rem(12px);
+  a {
+
+    font-weight: 400;
+    color: #333333;
+    display: inline-block;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+  :last-child {
+    color: #95a4b8;
+    text-decoration: none;
+    i {
+      display: none;
+    }
+  }
+  i {
+    margin-left: 8px;
+    margin-right: 8px;
+    font-size: 10px;
+  }
 }
