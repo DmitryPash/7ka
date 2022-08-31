@@ -365,22 +365,19 @@
 // }
 
 
-// // Ui accardion
-// $(document).ready(function() {
-// 	$('.ui-acardion-title').on('click', function fOpen() {
-//     $(this).next().slideToggle(300);
-//     $(this).children('.ui-acardion-arrow').toggleClass('opened-arrow');
-// });
-// });
-// {/* <div class="ui-acardion-title">
-// <div class="ui-acardion-arrow"></div>
-// </div>
-// <div class="ui-acardion-body"></div> */}
+// Ui accardion
+$(document).ready(function() {
+	$('.ui-acardion-title').on('click', function fOpen() {
+    console.log('zxc')
+    $(this).next().slideToggle(300);
+    $(this).children('.ui-acardion-arrow').toggleClass('opened-arrow');
+});
+});
 
-// lightGallery(document.getElementById('aboutusGallery'), {
-//   // speed: 500,
-//   selector: '.aboutus-gallery-item',
-// });
+lightGallery(document.getElementById('aboutusGallery'), {
+  // speed: 500,
+  selector: '.aboutus-gallery-item',
+});
 
 
 // // Закрытия меню по клику на оверлей
