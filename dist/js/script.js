@@ -368,7 +368,6 @@
 // Ui accardion
 $(document).ready(function() {
 	$('.ui-acardion-title').on('click', function fOpen() {
-    console.log('zxc')
     $(this).next().slideToggle(300);
     $(this).children('.ui-acardion-arrow').toggleClass('opened-arrow');
 });
