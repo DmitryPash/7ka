@@ -1,6 +1,6 @@
 .map {
   display: none;
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   height: 100vh;
@@ -191,11 +191,40 @@
   transition: .5s;
   // width: 0;
 
-  @media(max-width:1024px) {
+  & > ul {
+    max-height: calc(100vh - 150px);
+    scrollbar-width: 0;
+    overflow-y: auto;
+
+    &::-webkit-scrollbar {
+      width: 0;
+      height: 0;
+      -webkit-appearance: none;
+    }
+  }
+
+  ul ul {
+    scrollbar-width: 0;
+    overflow-y: auto;
+    border-right: 1px solid #000;
+
+    &::-webkit-scrollbar {
+      width: 0;
+      height: 0;
+      -webkit-appearance: none;
+    }
+  }
+  @media(max-width:768px) {
       width: 100%;
       // height: 100vh;
       padding-bottom: 0px;
       overflow-y: auto;
+
+
+      & > ul,
+      ul ul {
+        max-height: none;
+      }
 
       & ul {
         margin-bottom: 40px;
@@ -232,6 +261,7 @@
       width: 40px;
       right: 0;
       top: -50%;
+      
     }
     @media(max-width:1024px) {
         display: inline-block;
@@ -504,19 +534,47 @@
         left: 0;
         width: 100%;
     }
-
+    & > li {
+      position: relative;
+    }
+    & > li::after {
+      content: '';
+      position: absolute;
+      top: 0px;
+      left: 0;
+      width: 100%;
+      height: 1px;
+      background-color: transparent;
+    }
+    & > li::before {
+      content: '';
+      position: absolute;
+      bottom: 0px;
+      left: 0;
+      width: 100%;
+      height: 1px;
+      background-color: transparent;
+    }
     & > li:hover {
       position: relative;
       z-index: 9;
       background: #d7d0c0;
-      border-top: 1px solid #fff;
-      border-bottom: 1px solid #fff;
+      // border-top: 1px solid #fff;
+      // border-bottom: 1px solid #fff;
       a span {
         color: #fff;
         position: relative;
         z-index: 1;
-        border-top: 1px solid #fff;
-        border-bottom: 1px solid #fff;
+        // border-top: 1px solid #fff;
+        // border-bottom: 1px solid #fff;
+      }
+      &::after {
+        z-index: 9;
+        background-color: #fff;
+      }
+      &::before {
+        z-index: 9;
+        background-color: #fff;
       }
     }
   }

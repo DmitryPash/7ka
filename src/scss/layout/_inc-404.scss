@@ -1,0 +1,69 @@
+.error {
+    &-bg {
+        background-image: url(./../images/bg/404.png);
+        background-position: center top;
+        background-repeat: no-repeat;
+        background-size: cover;
+        // margin-bottom: -65px;
+        // width: 100%;
+        // height: 100%;
+        @media(max-width:1024) {
+        margin-bottom: -55px;
+        }
+    }
+    &-page {
+        padding-left: 200px;
+        max-width: 530px;
+        @media(max-width:768px){
+            max-width: max-content;
+            padding-left: 0;
+            margin: 0 auto;
+        }
+    }
+    &-title {
+        font-size: rem(150);
+        font-weight: 700;
+        margin-bottom: 30px;
+        text-transform: uppercase;
+        @media(max-width:768px){
+            font-size: rem(105);
+            text-align: center;
+        }
+    }
+    &-subtitle {
+        font-size: rem(34);
+        font-weight: 700;
+        text-transform: uppercase;
+        margin-bottom: 30px;
+        @media(max-width:768px){
+            font-size: rem(20);
+            text-align: center;
+
+        }
+    }
+    &-text {
+        text-transform: uppercase;
+        font-size: rem(18);
+        margin-bottom: 50px;
+        @media(max-width:768px){
+            font-size: rem(12);
+            text-align: center;
+
+        }
+    }
+    &-back {
+        text-transform: uppercase;
+        text-decoration: underline;
+        display: inline-block;
+        width: 100%;
+        @media(max-width:768px){
+            font-size: rem(12);
+            text-align: center;
+
+        }
+        &:hover {
+            text-decoration: none;
+        }
+    }
+}
+
