@@ -373,10 +373,13 @@ $(document).ready(function() {
 });
 });
 
-lightGallery(document.getElementById('aboutusGallery'), {
-  // speed: 500,
-  selector: '.aboutus-gallery-item',
-});
+if(document.getElementById('aboutusGallery')) {
+  lightGallery(document.getElementById('aboutusGallery'), {
+    // speed: 500,
+    selector: '.aboutus-gallery-item',
+  });
+}
+
 
 
 // // Закрытия меню по клику на оверлей
