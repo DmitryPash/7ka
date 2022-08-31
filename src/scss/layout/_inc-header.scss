@@ -300,6 +300,16 @@
       @include sprite($place-mark-mob)
     }
   }
+  &-wrap-num {
+    margin-bottom: 30px;
+    a {
+      display: block;
+      font-weight: 700;
+      color: #000;
+      
+    }
+   
+  }
 }
 .side-menu {
   z-index: 999;
