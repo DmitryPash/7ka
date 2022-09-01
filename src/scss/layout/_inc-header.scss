@@ -530,6 +530,30 @@
   .main-menu > ul > li .opened {
     display: inline-block;
   }
+
+  .main-menu li.active {
+    position: relative;
+    z-index: 1;
+
+    & > a {
+      color: #d7d0c0;
+      background: #FFF;
+    }
+    &:before,
+    &:after {
+      content: '';
+      position: absolute;
+      top: 0px;
+      left: 0;
+      width: 100%;
+      height: 1px;
+      background-color: #FFF;
+    }
+    &:after {
+      top: auto;
+      bottom: 0;
+    }
+  }
   .main-menu > ul > li > ul {
     position: fixed;
     width: 360px;
@@ -540,9 +564,11 @@
     background: #ffffff;
     z-index: 99;
     border-right: 2px solid #d7d0c0;
+    
     @media(max-width:1024px) {
-        left: 0;
-        width: 100%;
+      left: 0;
+      width: 100%;
+      border-right: 0;
     }
     & > li {
       position: relative;

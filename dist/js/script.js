@@ -467,12 +467,12 @@ $('.main-menu-overlay').addClass('opened');
 })
 // close menu
 $('.main-menu-close-btn').click(() => {
-$(document.body).removeClass('overflow-hidden-cont')
-document.body.style.marginRight = 0
-$('.main-menu').removeClass('opened-menu');
-$('.main-menu > ul > li').removeClass('menu-animate')
-$('.main-menu ul').removeClass('opened')
-$('.main-menu-overlay').removeClass('opened');
+  $(document.body).removeClass('overflow-hidden-cont')
+  document.body.style.marginRight = 0
+  $('.main-menu').removeClass('opened-menu');
+  $('.main-menu li').removeClass('menu-animate active')
+  $('.main-menu ul').removeClass('opened')
+  $('.main-menu-overlay').removeClass('opened');
 })
 
 
@@ -486,15 +486,33 @@ if ($(item).find("ul").length) {
 }
 });
 
-$(document).on("click", ".childs-in", function (e) {
+$(document).on("click", ".childs-in > a", function (e) {
   e.preventDefault();
-  const current = $(this).find("ul")
+  const parent = $(this).closest("li")
+  const current = parent.find("ul")
   if (!current) return
 
+  $(".main-menu li").not(parent).removeClass('active');
   $(".main-menu ul").not(current).removeClass('opened');
-  $(this).toggleClass("opened");
+  $(parent).toggleClass("active");
   current.toggleClass("opened");
 });
+
+$(document).on('click','.childs-toggler-arrow',function(e){
+  e.preventDefault();
+  $(".main-menu li").removeClass('active')
+  $(".main-menu ul ul").removeClass('opened')
+})
+
+$('.main-menu-overlay').on('click',function(e){
+  e.preventDefault();
+  document.body.style.marginRight = 0
+  $('.main-menu, .side-menu').removeClass('opened-menu');
+  $('.main-menu, .main-menu ul').removeClass('opened');
+  $(this).removeClass('opened');
+  $(document.body).removeClass('overflow-hidden-cont');
+  $('.main-menu li').removeClass('menu-animate active');
+  })
 
 
 
@@ -655,18 +673,6 @@ if (window.matchMedia('(max-width: 1024px)').matches) {
 }
 })
 }
-
-
-$('.main-menu-overlay').on('click',function(e){
-e.preventDefault();
-
-document.body.style.marginRight = 0
-$('.main-menu, .side-menu').removeClass('opened-menu');
-$('.main-menu, .main-menu ul').removeClass('opened');
-$(this).removeClass('opened');
-$(document.body).removeClass('overflow-hidden-cont');
-$('.main-menu li').removeClass('menu-animate');
-})
 
 
 function getScrollBarWidth () {
